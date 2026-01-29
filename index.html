@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Tiếng Anh cùng Peri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              colors: {
+                peri: {
+                  orange: '#FF9F1C',
+                  darkOrange: '#E68A00',
+                  blue: '#2EC4B6',
+                  deepBlue: '#011627',
+                  light: '#FDFFFC',
+                  gray: '#8E9AAF'
+                },
+                status: {
+                  unread: '#A0AEC0',
+                  completed: '#48BB78'
+                }
+              },
+              fontFamily: {
+                'nunito': ['Nunito', 'sans-serif'],
+                'inter': ['Inter', 'sans-serif'],
+              },
+              boxShadow: {
+                'premium': '0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 8px 15px -6px rgba(0, 0, 0, 0.05)',
+                'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)',
+                'card-hover': '0 20px 40px -10px rgba(0, 0, 0, 0.08)'
+              },
+              animation: {
+                'float': 'float 4s ease-in-out infinite',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'slide-up': 'slideUp 0.5s ease-out forwards',
+              },
+              keyframes: {
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-12px)' },
+                },
+                slideUp: {
+                  '0%': { opacity: 0, transform: 'translateY(20px)' },
+                  '100%': { opacity: 1, transform: 'translateY(0)' },
+                }
+              }
+            }
+          }
+        }
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-x: hidden;
+        }
+        .duo-button {
+            border-bottom-width: 4px;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .duo-button:active {
+            border-bottom-width: 0px;
+            transform: translateY(4px);
+        }
+        .peri-gradient {
+          background: linear-gradient(135deg, #FF9F1C 0%, #FFBF69 100%);
+        }
+        .card-transition {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #E2E8F0;
+          border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+          background: #2D3748;
+        }
+        .reading-content {
+          font-family: 'Inter', sans-serif;
+          line-height: 1.8;
+          letter-spacing: -0.01em;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+</head>
+<body class="bg-[#F8FAFC] dark:bg-[#011627] text-gray-900 dark:text-gray-100 selection:bg-peri-orange/30">
+    <div id="root"></div>
+</body>
+</html>
